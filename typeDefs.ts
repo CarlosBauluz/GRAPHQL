@@ -1,14 +1,20 @@
 export const typeDefs = `#graphql
-    type Ejemplo {
+    type Restaurante {
         id: ID!
-        ejemplo: String!
+        nombre:String!
+        direccion:String!
+        telefono:String!
+        temperatura:Int!
+        time:String!
     }
     
     type Query {
-        test:String!
+        getRestaurant(id:ID!):Restaurante!
+        getRestaurants:[Restaurante]!
     }
 
     type Mutation {
-        test:String!
+        addRestaurant(nombre:String!, direccioncalle:String!, ciudad:String!, telefono:String!):Restaurante!
+        deleteRestaurant(id:ID!):Boolean!
     }
 `
