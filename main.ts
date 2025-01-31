@@ -7,7 +7,9 @@ import { GraphQLError } from "graphql";
 import { Ejemplo } from "./type.ts";
 
 const MONGO_URL = Deno.env.get("MONGO_URL")
-if(!MONGO_URL) throw new GraphQLError("MONGO URL NOT EXISTS")
+if(!MONGO_URL) throw new Error("MONGO URL NOT EXISTS")
+const API_KEY = Deno.env.get("API_KEY")
+if(!API_KEY) throw new Error("API_KEY DOESNT EXIST")
 
 const client = new MongoClient(MONGO_URL)
 await client.connect()
