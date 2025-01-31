@@ -38,10 +38,10 @@ export const resolvers = {
 
         getRestaurants:async(
             _:unknown,
-            __:unknown,
+            args:MutationArgs,
             context:Context
         ):Promise<Restaurante[]> =>{
-            const resultado = await context.restauranteCollection.find().toArray()
+            const resultado = await context.restauranteCollection.find({ciudad:args.ciudad}).toArray()
             //if(!resultado){throw new GraphQLError("No hay restaurantes en la base de datos")}
             return resultado
         }
